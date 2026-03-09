@@ -5,7 +5,9 @@ criterios de búsqueda basados en fechas y que se puedan ver en la terminal.
     -Requisitos-
 
     1.-Definir constantes de fecha en Main:
-Se deben definir dos constantes de fecha en la Clase Main. Te servirán para declarar la fecha de inicio y la fecha fin (fechaInicio, fechaFin ), ten en cuenta que podrian ser nulas tambien.
+Se deben definir dos constantes de fecha en la Clase Main. 
+Te servirán para declarar la fecha de inicio y la fecha fin (fechaInicio, fechaFin), 
+ten en cuenta que podrían ser nulas también.
 
     2.-Estructura del objeto Vuelo:
 Id (int) - No importa el orden de la secuencia
