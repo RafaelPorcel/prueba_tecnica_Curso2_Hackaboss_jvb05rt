@@ -26,52 +26,8 @@ public class Vuelo {
     }
 
     //Getters & Setters de Vuelo
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombreVuelo() {
-        return nombreVuelo;
-    }
-
-    public void setNombreVuelo(String nombreVuelo) {
-        this.nombreVuelo = nombreVuelo;
-    }
-
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
-    }
-
-    public String getLugarSalida() {
-        return lugarSalida;
-    }
-
-    public void setLugarSalida(String lugarSalida) {
-        this.lugarSalida = lugarSalida;
-    }
-
-    public String getLugarLlegada() {
-        return lugarLlegada;
-    }
-
-    public void setLugarLlegada(String lugarLlegada) {
-        this.lugarLlegada = lugarLlegada;
-    }
-
     public LocalDate getFechaSalida() {
         return fechaSalida;
-    }
-
-    public void setFechaSalida(LocalDate fechaSalida) {
-        this.fechaSalida = fechaSalida;
     }
 
     public LocalDate getFechaLlegada() {
@@ -83,12 +39,18 @@ public class Vuelo {
     }
 
     @Override
+    /*public String toString() {
+        return "Vuelo: %14s" + nombreVuelo +
+                " | Empresa: %27s" + empresa +
+                " | Salida: %20s" + lugarSalida +
+                " | Destino: %24s" + lugarLlegada +
+                " | F.Salida: %21s" + fechaSalida +
+                " | F.Llegada: %22s" + fechaLlegada;
+    }*/
     public String toString() {
-        return "Vuelo " + nombreVuelo +
-                " | Empresa: " + empresa +
-                " | Salida: " + lugarSalida +
-                " | Destino: " + lugarLlegada +
-                " | Fecha Salida: " + fechaSalida +
-                " | Fecha Llegada: " + fechaLlegada;
+        return String.format(
+                "Vuelo %-6s | Empresa %-16s | Salida %-10s | Destino %-12s | F.Salida %-10s | F.Llegada %-11s",
+                nombreVuelo, empresa, lugarSalida, lugarLlegada, fechaSalida, fechaLlegada
+        );
     }
 }
