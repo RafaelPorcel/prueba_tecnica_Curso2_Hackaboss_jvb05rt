@@ -25,28 +25,12 @@ public class Vuelo {
         this.fechaLlegada = fechaLlegada;
     }
 
-    //Getters & Setters de Vuelo
+    //Getter de fechaSalida
     public LocalDate getFechaSalida() {
         return fechaSalida;
     }
 
-    public LocalDate getFechaLlegada() {
-        return fechaLlegada;
-    }
-
-    public void setFechaLlegada(LocalDate fechaLlegada) {
-        this.fechaLlegada = fechaLlegada;
-    }
-
     @Override
-    /*public String toString() {
-        return "Vuelo: %14s" + nombreVuelo +
-                " | Empresa: %27s" + empresa +
-                " | Salida: %20s" + lugarSalida +
-                " | Destino: %24s" + lugarLlegada +
-                " | F.Salida: %21s" + fechaSalida +
-                " | F.Llegada: %22s" + fechaLlegada;
-    }*/
     public String toString() {
         return String.format(
                 "Vuelo %-6s | Empresa %-16s | Salida %-10s | Destino %-12s | F.Salida %-10s | F.Llegada %-11s",

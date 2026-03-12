@@ -11,23 +11,14 @@ import utils.VueloUtils;
 public class Main {
     public static void main(String[] args) {
 
-        //Constantes de fechas
-        final LocalDate fechaDesde;
-        final LocalDate fechaHasta;
-
-        fechaDesde = LocalDate.of(2026,1,12);
-        //fechaDesde = null;
-
-        fechaHasta = LocalDate.of(2026,5,14);
-        //fechaHasta = LocalDate.of(2026,5,14);
-
-        /*final Optional<LocalDate> fechaInicio = Optional.ofNullable(null);
-        final Optional<LocalDate> fechaFin = Optional.ofNullable(null);*/
+        //Constantes de fechas para pasarle al método
+        final LocalDate fechaInicio = LocalDate.of(2026, 5, 13);
+        final LocalDate fechaFin = null;
 
         //Instanciar vuelos de la clase Vuelo
         Vuelo v1 = new Vuelo(5641, "MCD234", "Iberia", "Madrid", "París",
                 LocalDate.of(2026, 1, 13), LocalDate.of(2026, 1, 13));
-        Vuelo v2 = new Vuelo(234165, "89ElQ", "KLM", "Ámsterdam", "Málaga",
+        Vuelo v2 = new Vuelo(234165, "89ElQP", "KLM", "Ámsterdam", "Málaga",
                 LocalDate.of(2026, 2, 13), LocalDate.of(2026, 3, 1));
         Vuelo v3 = new Vuelo(5642, "PLM567", "Air France", "París", "Roma",
                 LocalDate.of(2026, 3, 13), LocalDate.of(2026, 2, 10));
@@ -46,22 +37,27 @@ public class Main {
         Vuelo v10 = new Vuelo(5649, "VCX987", "Turkish Airlines", "Estambul", "Buenos Aires",
                 LocalDate.of(2026, 10, 13), LocalDate.of(2026, 5, 8));
 
-        //Crear una lista de tipo Vuelos y agregarle los 10 Vuelos
-        List<Vuelo> listaVuelos = new ArrayList<>(Arrays.asList(v1, v2, v3, v4, v5, v6, v7, v8, v9, v10));
+        //Crear una lista de tipo Vuelos y agregarle los 10 Vuelos, los meto desordenados porque están ordenados por fecha en las instancias
+        List<Vuelo> listaVuelos = new ArrayList<>(Arrays.asList(v4, v9, v8, v6, v2, v1, v10, v3, v7, v5));
 
         //Recorrer la lista e imprimirla mediante la función creada en la otra clase
-        for (Vuelo v : listaVuelos){
+        System.out.println("LISTA COMPLETA DE VUELOS");
+        for (Vuelo v : listaVuelos) {
             VueloUtils.imprimirVuelo(v);
         }
 
-        System.out.println("**************** FILTRO ****************");
-        List<Vuelo> vuelosFiltrados = new ArrayList<>(VueloUtils.filtrarVuelosPorFecha(fechaDesde, fechaHasta, listaVuelos));
-        System.out.println("Los vuelos de esta lista van desde : " + fechaDesde + " hasta: " + fechaHasta);
-        for (Vuelo v :vuelosFiltrados){
+        //Creo un Optional con las variables LocalDate
+        // con .map convierto el tipo a String y asi puedo imprimir un String en el orElse
+        System.out.println("\nFILTRADO DE VUELOS DESDE " +
+                Optional.ofNullable(fechaInicio).map(LocalDate::toString).orElse("EL PRINCIPIO DE LOS TIEMPOS") +
+                " HASTA: " +
+                Optional.ofNullable(fechaFin).map(LocalDate::toString).orElse("EL FINAL DE LOS TIEMPOS"));
+
+        List<Vuelo> vuelosFiltrados = VueloUtils.filtrarVuelosPorFecha(fechaInicio, fechaFin, listaVuelos);
+
+        for (Vuelo v : vuelosFiltrados) {
             VueloUtils.imprimirVuelo(v);
         }
-
-        //VueloUtils.filtrarVuelosPorFecha(fechaDesde, fechaHasta, listaVuelos);
 
 
     }
